@@ -1,8 +1,8 @@
 spring:
   datasource:
-  url: jdbc:postgresql://junction.proxy.rlwy.net:46717/railway
-  username: postgres
-  password: uXBLwmnGBUjTHxEYlElJogiyaxSUWtkI
+    url: jdbc:postgresql://junction.proxy.rlwy.net:46717/railway
+    username: postgres
+    password: uXBLwmnGBUjTHxEYlElJogiyaxSUWtkI
     driver-class-name: org.postgresql.Driver
 
   sql:
@@ -13,7 +13,7 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: false
-    defer-datasource-initialization: truea
+    defer-datasource-initialization: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -35,13 +35,10 @@ course:
   section-pass-score: 80
 
 # ── TELEGRAM BOT ──────────────────────────────────────────────────
-# BotFather dan olingan token va username
 telegram:
   bot:
     token: 7467380526:AAGscayEpyMQOmIIDoEZSlVJo-33MvEgm3I
     username: FORUSERNAME_BOT
-  # Adminlarning Telegram ID lari (vergul bilan ajratilgan)
-  # Telegram ID ni bilish uchun @userinfobot ga /start yuboring
   admin:
     ids: "7653586782"
 
@@ -50,11 +47,11 @@ payment:
   card:
     number: "8600 0000 0000 0000"
     owner: "Kurs egasi ismi"
-  amount: 50000        # so'm
+  amount: 50000
   premium:
-    days: 30           # premium necha kunga beriladi
+    days: 30
 
-# Frontend URL (Telegram botda sayt havolasi uchun)
+# Frontend URL
 app:
   frontend:
     url: http://localhost:3000
@@ -71,8 +68,3 @@ logging:
     org.springframework.security: WARN
     org.hibernate: ERROR
     org.telegram: WARN
-
-    #ALTER TABLE users ADD COLUMN IF NOT EXISTS phone_number VARCHAR(20) UNIQUE;
-    #ALTER TABLE users ALTER COLUMN email DROP NOT NULL;
-    #UPDATE users SET phone_number = email WHERE phone_number IS NULL;
-    #ALTER TABLE users ALTER COLUMN phone_number SET NOT NULL;
