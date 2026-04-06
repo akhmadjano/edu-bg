@@ -1,0 +1,78 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 1
+    driver-class-name: org.postgresql.Driver
+
+  sql:
+    init:
+      mode: always
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        enable_lazy_load_no_trans: true
+
+  jackson:
+    default-property-inclusion: non_null
+
+server:
+  port: 8080
+
+jwt:
+  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+  expiration: 86400000
+  refresh-expiration: 604800000
+
+course:
+  lesson-pass-score: 80
+  section-pass-score: 80
+
+# ── TELEGRAM BOT ──────────────────────────────────────────────────
+# BotFather dan olingan token va username
+telegram:
+  bot:
+    token: 7467380526:AAGscayEpyMQOmIIDoEZSlVJo-33MvEgm3I
+    username: FORUSERNAME_BOT
+  # Adminlarning Telegram ID lari (vergul bilan ajratilgan)
+  # Telegram ID ni bilish uchun @userinfobot ga /start yuboring
+  admin:
+    ids: "7653586782"
+
+# To'lov sozlamalari
+payment:
+  card:
+    number: "8600 0000 0000 0000"
+    owner: "Kurs egasi ismi"
+  amount: 50000        # so'm
+  premium:
+    days: 30           # premium necha kunga beriladi
+
+# Frontend URL (Telegram botda sayt havolasi uchun)
+app:
+  frontend:
+    url: http://localhost:3000
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    com.platform: INFO
+    org.springframework.security: WARN
+    org.hibernate: ERROR
+    org.telegram: WARN
+
+    #ALTER TABLE users ADD COLUMN IF NOT EXISTS phone_number VARCHAR(20) UNIQUE;
+    #ALTER TABLE users ALTER COLUMN email DROP NOT NULL;
+    #UPDATE users SET phone_number = email WHERE phone_number IS NULL;
+    #ALTER TABLE users ALTER COLUMN phone_number SET NOT NULL;
