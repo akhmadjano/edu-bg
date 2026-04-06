@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: 1
+  url: jdbc:postgresql://junction.proxy.rlwy.net:46717/railway
+  username: postgres
+  password: uXBLwmnGBUjTHxEYlElJogiyaxSUWtkI
     driver-class-name: org.postgresql.Driver
 
   sql:
